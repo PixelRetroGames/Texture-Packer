@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Gamejam" />
+		<Option title="Texture Packer" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Text Editor" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Texture Packer" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Text Editor" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Texture Packer" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -30,20 +30,18 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-D TP_SDL_USED" />
 			<Add directory="./include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -lSDL2_image" />
 			<Add directory="./lib" />
 		</Linker>
-		<Unit filename="include/errors.h" />
+		<Unit filename="include/config.h" />
 		<Unit filename="include/library.h" />
-		<Unit filename="include/settings.h" />
 		<Unit filename="include/texture.h" />
-		<Unit filename="src/errors.cpp" />
 		<Unit filename="src/library.cpp" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/settings.cpp" />
 		<Unit filename="src/texture.cpp" />
 		<Extensions>
 			<code_completion />

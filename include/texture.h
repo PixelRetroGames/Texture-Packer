@@ -3,7 +3,13 @@
 
 #include "library.h"
 
-class Texture
+struct Rect
+{
+ int x,y,w,h;
+};
+
+#ifdef TP_SDL_USED
+struct Texture
 {
  public:
  int w,h;
@@ -11,21 +17,21 @@ class Texture
 };
 
 Texture *Load_Texture(char *filename);
-Texture *Load_Transparent_Texture(char *filename);
-Texture *Create_TTF_Texture(TTF_Font *font,std::string text,SDL_Color color);
 Texture *Create_Transparent_Texture(int w,int h);
 
-void Apply_Texture(int x,int y,Texture *source,Texture *destination=NULL);
-void Apply_Texture(int x,int y,int w,int h,Texture *source,Texture *destination=NULL);
-void Apply_Texture(int xImage,int yImage,int xScreen,int yScreen,int w,int h,Texture *source,Texture *destination=NULL);
+void Apply_Texture(Rect src_rect,Texture *src,Rect dest_rect,Texture *dest);
 
-void Apply_Stretched_Texture(int x,int y,int w,int h,Texture *source=NULL,Texture *destination=NULL);
-
-void Set_Texture_Blend_Mode(Texture *_texture,SDL_BlendMode blend_mode);
-void Set_Texture_Alpha(Texture *_texture,Uint8 alpha);
 void Destroy_Texture(Texture *_texture);
 
-extern Texture *SCREEN,*last_frame;
+extern Texture *SCREEN;
+void Create_Screen_Texture(int RESOLUTION_W,int RESOLUTION_H);
+
 void Flip_Buffers(Texture *screen);
+
+#elif defined TP_SFML_USED
+
+
+
+#endif // TP_SDL_USED
 
 #endif // TEXTURE_H
